@@ -1,3 +1,30 @@
-<div class="ui segment">
-  <p>Feed works!</p>
+<div class="ui comments" *ngIf='chirps'>
+  <div class="comment" *ngFor='let chirp of chirps'>
+    <a class="avatar">
+      <img src="public/avatars/{{chirp.avatar}}">
+    </a>
+    <div class="content">
+      <a class="author">{{chirp.author}}</a>
+      <div class="metadata">
+        <span class="date"> {{chirp.date | date: 'hh:mm:ss dd/mm/yy'}}</span>
+      </div>
+      <div class="text">
+        {{chirp.body}}
+      </div>
+      <div class="actions">
+        <a class="reply">Reply</a>
+        <a class="like">
+          <i class="like icon"></i> {{chirp.favorites.length}} Favorites
+        </a>
+
+        <a class="retweet">
+          <i class="retweet icon"></i> {{chirp.rechirps.length}} Rechirps
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div *ngIf='!chirps'>
+  <h2>No chirps to display right now...</h2>
 </div>
