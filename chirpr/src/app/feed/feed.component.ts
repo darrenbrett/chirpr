@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.css']
+  styleUrls: ['./feed.component.css'],
+  providers: [ UserService ]
 })
 export class FeedComponent implements OnInit {
 
@@ -20,7 +22,7 @@ export class FeedComponent implements OnInit {
 
   chirpText = '';
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
   }
@@ -30,25 +32,27 @@ export class FeedComponent implements OnInit {
   }
 
   OnFavorite(chirp) {
-    if (!this.isUserInCollection(chirp.favorites, 'Glen')) {
-      chirp.favorites.push('Glen');
+    if (!this.isUserInCollection(chirp.favorites,
+    this.userService.getCurrentUser())) {
+      chirp.favorites.push(this.userService.getCurrentUser());
     }
-
   }
 
   OnRechirp(chirp) {
-    if (!this.isUserInCollection(chirp.rechirps, 'Glen')) {
-      chirp.rechirps.push('Glen');
+    if (!this.isUserInCollection(chirp.rechirps,
+    this.userService.getCurrentUser())) {
+      chirp.rechirps.push(this.userService.getCurrentUser());
     }
-
   }
 
   OnNewChirp() {
     console.log(this.chirpText);
     this.chirps.unshift(
-      { body: this.chirpText, author: 'Glen', avatar: 'glen.jpg', date: new Date(), rechirps: [], favorites: [] }
+      { body: this.chirpText, author: this.userService.getCurrentUser(), avatar: 'glen.jpg',
+      date: new Date(), rechirps: [], favorites: [] }
     );
     this.chirpText = '';
   }
+
 
 }

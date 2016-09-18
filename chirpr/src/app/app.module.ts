@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { FeedComponent } from './feed/feed.component';
+import { UserService } from './user.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { FeedComponent } from './feed/feed.component';
     HttpModule,
     FormsModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

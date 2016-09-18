@@ -25,11 +25,11 @@
       <div class="actions">
         <a class="reply">Reply</a>
         <a class="like" (click)="OnFavorite(chirp)">
-          <i class="like icon" [ngClass]='{ liked: isUserInCollection(chirp.favorites, "Glen") }'></i> {{chirp.favorites.length}} Favorites
+          <i class="like icon" [ngClass]='{ liked: isUserInCollection(chirp.favorites, userService.getCurrentUser()) }'></i> {{chirp.favorites.length}} Favorites
         </a>
 
         <a class="rechirp" (click)="OnRechirp(chirp)">
-          <i class="retweet icon" [ngClass]='{ rechirped: isUserInCollection(chirp.rechirps, "Glen") }'></i> {{chirp.rechirps.length}} Rechirps
+          <i class="retweet icon" [ngClass]='{ rechirped: isUserInCollection(chirp.rechirps, userService.getCurrentUser()) }'></i> {{chirp.rechirps.length}} Rechirps
         </a>
       </div>
     </div>
