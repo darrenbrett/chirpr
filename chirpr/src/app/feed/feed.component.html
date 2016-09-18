@@ -1,3 +1,14 @@
+<form class="ui form">
+  <div class="field">
+    <label>What would you like to share?</label>
+    <textarea name='body' placeholder="Lay it down, we'll pick it up!" type="text" [(ngModel)]='chirpText' ></textarea>
+  </div>
+
+  <button class="ui button primary" type="button"
+    (click)='OnNewChirp(mytext)'
+  >Chirp</button>
+</form>
+
 <div class="ui comments" *ngIf='chirps'>
   <div class="comment" *ngFor='let chirp of chirps'>
     <a class="avatar">
@@ -6,7 +17,7 @@
     <div class="content">
       <a class="author">{{chirp.author}}</a>
       <div class="metadata">
-        <span class="date"> {{chirp.date | date: 'hh:mm:ss dd/mm/yy'}}</span>
+        <span class="date">{{chirp.date | date: 'hh:mm:ss dd/mm/yy'}}</span>
       </div>
       <div class="text">
         {{chirp.body}}
