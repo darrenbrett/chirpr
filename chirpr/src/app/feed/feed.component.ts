@@ -23,4 +23,23 @@ export class FeedComponent implements OnInit {
   ngOnInit() {
   }
 
+  isUserInCollection(collection: string[], userId: string): boolean {
+    return collection.indexOf(userId) !== -1;
+  }
+
+  OnFavorite(chirp) {
+    if (!this.isUserInCollection(chirp.favorites, 'Glen')) {
+      chirp.favorites.push('Glen');
+    }
+
+  }
+
+  OnRechirp(chirp) {
+    if (!this.isUserInCollection(chirp.rechirps, 'Glen')) {
+      chirp.rechirps.push('Glen');
+    }
+
+
+  }
+
 }
