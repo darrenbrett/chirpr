@@ -8,20 +8,27 @@ import { MenuComponent } from './menu/menu.component';
 import { FeedComponent } from './feed/feed.component';
 import { UserService } from './user.service';
 import { FeedService } from './feed.service';
+import { MessagesComponent } from './messages/messages.component';
+import { FriendsComponent } from './friends/friends.component';
+import { routing,
+         appRoutingProviders } from './app.routing';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    FeedComponent
+    FeedComponent,
+    MessagesComponent,
+    FriendsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    routing
   ],
-  providers: [UserService, FeedService],
+  providers: [UserService, FeedService, appRoutingProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
