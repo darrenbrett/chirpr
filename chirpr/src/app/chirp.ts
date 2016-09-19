@@ -2,8 +2,8 @@ export class Chirp {
 
     public avatar;
 
-    constructor(public body: string, public author: string, public date: Date, public rechirps: Array<string>, public favorites: Array<string>) {
-        this.avatar = `${author}.jpg`;
+    constructor(public id: number, public body: string, public author: string, public date: Date, public rechirps: Array<string>, public favorites: Array<string>) {
+        this.avatar = `${author.toLowerCase()}.jpg`;
     }
 
     hasFavorited(userId: string): boolean {

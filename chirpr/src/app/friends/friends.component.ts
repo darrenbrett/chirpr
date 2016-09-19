@@ -13,8 +13,11 @@ export class FriendsComponent implements OnInit {
   constructor(private feedService: FeedService) { }
 
   ngOnInit() {
-    this.friends = this.feedService.getFriends();
-    console.log(this.friends);
+    this.feedService.getFriends().subscribe((newFriends) => {
+    console.log(newFriends);
+    this.friends = newFriends;
+    });
+
   }
 
 }

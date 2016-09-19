@@ -10,7 +10,7 @@ const appRoutes: Routes = [
     { path: 'feed', component: FeedComponent },
     { path: 'friends', component: FriendsComponent },
     { path: 'messages', component: MessagesComponent },
-    { path: 'friends/:friendId', component: FriendComponent }
+    { path: 'friends/:friendId', component: FriendComponent },
 ];
 
 export const appRoutingProviders: any[] = [
