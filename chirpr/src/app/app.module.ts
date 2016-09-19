@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { FeedComponent } from './feed/feed.component';
 import { UserService } from './user.service';
+import { FeedService } from './feed.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { UserService } from './user.service';
     HttpModule,
     FormsModule
   ],
-  providers: [UserService],
+  providers: [UserService, FeedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
